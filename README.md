@@ -221,8 +221,7 @@ SELECT
 	Filmes.Nome,
 	Atores.PrimeiroNome, 
 	Atores.UltimoNome,
-	ElencoFilme.Papel 
-	
+	ElencoFilme.Papel 	
 FROM 
 	Filmes0
 INNER JOIN 
