@@ -89,3 +89,147 @@ Você deverá criar diversas consultas, com o objetivo de retornar os dados a se
 ## 12 - Buscar o nome do filme e os atores, trazendo o PrimeiroNome, UltimoNome e seu Papel
 
 ![Exercicio 12](Imagens/12.png)
+
+
+## Desafio Resolvido (querys)
+
+--  1
+SELECT 
+	Nome,
+	Ano 
+FROM 
+	Filmes
+
+-- 2
+SELECT 
+	Nome,
+	Ano 
+FROM 
+	Filmes
+ORDER BY 
+	Ano
+
+-- 3
+SELECT 
+	Nome,
+	Ano,
+	Duracao 
+FROM 
+	Filmes
+WHERE 
+	Nome='De Volta para o Futuro'
+
+-- 4
+SELECT 
+	Nome,
+	Ano,
+	Duracao 
+FROM 
+	Filmes
+WHERE
+	Ano='1997'
+
+-- 5
+SELECT 
+	Nome,
+	Ano,
+	Duracao 
+FROM 
+	Filmes
+WHERE
+	Ano>'2000'
+
+-- 6
+SELECT 
+	Nome,
+	Ano,
+	Duracao 
+FROM 
+	Filmes
+WHERE
+	Duracao>'100' and Duracao<'150'
+ORDER by 
+	Duracao 
+
+-- 7
+SELECT 
+	count(Ano) Quantidade,	
+	Ano
+FROM 
+	Filmes
+GROUP BY 
+	Ano
+ORDER BY 
+	Quantidade desc
+
+-- 8
+SELECT 
+	PrimeiroNome,
+	UltimoNome,
+	Genero 
+FROM 
+	Atores
+WHERE 
+	Genero='M'
+
+-- 9
+SELECT 
+	PrimeiroNome,
+	UltimoNome,
+	Genero	
+FROM 
+	Atores
+WHERE 
+	Genero='F'
+ORDER BY 
+	PrimeiroNome 
+
+-- 10
+SELECT 
+	Nome,
+	Generos.Genero
+FROM 
+	Filmes
+INNER JOIN
+	FilmesGenero
+ON
+	Filmes.Id = FilmesGenero.IdFilme 
+INNER JOIN 
+	Generos
+ON
+	FilmesGenero.IdGenero = Generos.Id 
+
+-- 11	
+SELECT 
+	Nome,
+	Generos.Genero
+FROM 
+	Filmes
+INNER JOIN
+	FilmesGenero
+ON
+	Filmes.Id = FilmesGenero.IdFilme 
+INNER JOIN 
+	Generos
+ON
+	FilmesGenero.IdGenero = Generos.Id 
+WHERE 
+	Generos.Genero='Mistério'
+
+-- 12
+SELECT 
+	Filmes.Nome,
+	Atores.PrimeiroNome, 
+	Atores.UltimoNome,
+	ElencoFilme.Papel 
+	
+FROM 
+	Filmes0
+INNER JOIN 
+	ElencoFilme
+ON 
+	Filmes.Id = ElencoFilme.IdFilme 
+INNER JOIN 	
+	Atores
+ON 
+	ElencoFilme.IdAtor = Atores.Id 	
